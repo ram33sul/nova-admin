@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import routes, { routePaths } from "../../Routes";
 import useApi from "../../custom_hooks/useApi";
 import { getMe } from "../../api/user_service";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { setUser } from "../../store/user/actions";
 import Loader from "../loader/loader.component";
 
@@ -24,18 +24,20 @@ export default function Router() {
   return loading ? (
     <Loader />
   ) : (
-    <Routes>
-      {routes.map(({ path, element, shouldLogin, shouldLogout }) => {
-        const elem =
-          shouldLogin && !user ? (
-            <Navigate to={routePaths.LOGIN} />
-          ) : shouldLogout && user ? (
-            <Navigate to={routePaths.HOME} />
-          ) : (
-            element
-          );
-        return <Route key={path} path={path} element={elem} />;
-      })}
-    </Routes>
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        {routes.map(({ path, element, shouldLogin, shouldLogout }) => {
+          const elem =
+            shouldLogin && !user ? (
+              <Navigate to={routePaths.LOGIN} />
+            ) : shouldLogout && user ? (
+              <Navigate to={routePaths.HOME} />
+            ) : (
+              element
+            );
+          return <Route key={path} path={path} element={elem} />;
+        })}
+      </Routes>
+    </Suspense>
   );
 }

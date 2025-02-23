@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from "react";
-import { doApi } from "../../api/do_api";
 import { postLogout } from "../../api/user_service";
 import toast from "react-hot-toast";
 import { UnknownAction } from "redux";

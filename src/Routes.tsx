@@ -1,13 +1,14 @@
-import Home from "./pages/home/home";
-import Login from "./pages/login/login";
-import NotFound from "./pages/notfound/notfound";
-import Signup from "./pages/signup/signup";
-
+import { lazy } from "react";
 export const routePaths = {
   HOME: "/",
   LOGIN: "/login",
   SIGNUP: "/signup",
 };
+
+const Home = lazy(() => import("./pages/home/home"));
+const Login = lazy(() => import("./pages/login/login"));
+const NotFound = lazy(() => import("./pages/notfound/notfound"));
+const Signup = lazy(() => import("./pages/signup/signup"));
 
 const routes = [
   {

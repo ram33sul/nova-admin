@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { useMemo, useState } from "react";
 import { InputErrors } from "../../types/general.d";
 import { Utils } from "./login.util";
+import { routePaths } from "../../Routes";
 
 export default function Login() {
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -16,7 +17,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const navigateToSignup = () => {
-    navigate("/signup");
+    navigate(routePaths.SIGNUP);
   };
 
   const utils = useMemo(

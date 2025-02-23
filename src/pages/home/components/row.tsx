@@ -2,7 +2,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import Button from "../../../components/button/button.component";
 import { Kyc, KycStatus } from "../../../types/kyc";
 import { openInNewTab } from "../../../utils/download";
-import { ButtonStyleType } from "../../../components/button/button";
+import { ButtonStyleType } from "../../../components/button/button.d";
 import { Utils } from "../home.util";
 import StatusChip from "../../../components/status_chip/status_chip.component";
 

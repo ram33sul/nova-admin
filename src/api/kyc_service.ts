@@ -1,4 +1,4 @@
-import { KycListParams, KycSortBy, KycStatus } from "../types/kyc";
+import { KycListParams, KycStatus } from "../types/kyc";
 import { doApi } from "../api/do_api";
 
 export const getKycList = async (params: KycListParams) => {

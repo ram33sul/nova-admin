@@ -28,3 +28,11 @@ export interface KycListParams {
   page: number;
   pageSize: number;
 }
+
+export interface KycReport {
+  usersCount: number;
+  kycsTotalCount: number;
+  kycsPendingCount: number;
+  kycsApprovedCount: number;
+  kycsRejectedCount: number;
+}

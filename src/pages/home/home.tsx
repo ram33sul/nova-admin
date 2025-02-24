@@ -8,10 +8,14 @@ import Input from "../../components/input/input.component";
 import Select from "../../components/select/select.component";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import Row from "./components/row";
+import { useNavigate } from "react-router-dom";
+import { routePaths } from "../../Routes";
 
 const PAGE_SIZE = 12;
 
 export default function Home() {
+  const navigate = useNavigate();
+
   const [kycListParams, setKycListParams] = useState<KycListParams>({
     name: "",
     status: "",
@@ -44,6 +48,10 @@ export default function Home() {
     [kycListParams.page]
   );
 
+  const toReport = () => {
+    navigate(routePaths.REPORT);
+  };
+
   return (
     <div className="mx-14 mt-6">
       <div className="flex justify-between">
@@ -54,7 +62,8 @@ export default function Home() {
             Search
           </Button>
         </form>
-        <div className="flex">
+        <div className="flex gap-2">
+          <Button onClick={toReport}>View Report</Button>
           <div
             onClick={utils.handlePageChange(-1, isPrevDisabled)}
             className={`bg-black text-white dark:bg-white dark:text-black rounded-lg p-2 cursor-pointer ${

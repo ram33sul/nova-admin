@@ -23,3 +23,12 @@ export const putKycStatus = async (data: {
     data,
   });
 };
+
+export const getKycReport = async () => {
+  const url = "/authorized/kyc/report";
+  const method = "GET";
+  return await doApi<any>({
+    method,
+    url,
+  });
+};

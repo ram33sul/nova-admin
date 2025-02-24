@@ -54,6 +54,10 @@ VITE_API_URL=backend_base_url
 
 `
 
+## Note
+
+To register as an admin, you must include the "admin_key" in the query parameters of the registration (signup) page. This is a security measure to ensure that only authorized individuals can register as admins. The value of "admin_key" must match the one defined in the backend environment variables.
+
 ## Feel free to contact me if you have any queries
 
 rameesyounus49@gmail.com
